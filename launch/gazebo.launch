@@ -3,7 +3,7 @@
   <arg name="paused" default="false"/>
   <arg name="gazebo_gui" default="true"/>
   <arg name="initial_joint_positions" doc="Initial joint configuration of the robot"
-       default=""/>
+       default=" -J west_joint_a1 0 -J west_joint_a2 -1.57 -J west_joint_a3 1.57 -J west_joint_a4 0 -J west_joint_a5 0 -J west_joint_a6 0 -J west_joint_e1 1"/>
 
   <!-- startup simulated world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -13,7 +13,7 @@
   </include>
 
   <!-- send robot urdf to param server -->
-  <param name="robot_description" textfile="$(find rccn_kuka_robot_cell)/urdf/rccn_kuka_robot_cell.urdf" />
+  <param name="robot_description" textfile="$(find rccn_kuka_robot_cell)/urdf/rccn_west_robot.urdf" />
 
   <!-- unpause only after loading robot model -->
   <arg name="unpause" value="$(eval '' if arg('paused') else '-unpause')" />
